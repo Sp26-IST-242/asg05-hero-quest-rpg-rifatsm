@@ -36,7 +36,7 @@ class Bag(Generic[T]):
             True  — item added successfully.
             False — bag is at capacity; item rejected.
         """
-        if self.__len__ >= self.capacity:
+        if self.is_full: # spaghettti code
             return False
         self._items.append(item)
         return True
@@ -60,7 +60,7 @@ class Bag(Generic[T]):
 
     def is_full(self) -> bool:
         """Return True when no more items can be added."""
-        pass
+        return self.__len__ >= self.capacity # spaghettti code
 
     def __len__(self) -> int:
         """Support len(bag)."""
