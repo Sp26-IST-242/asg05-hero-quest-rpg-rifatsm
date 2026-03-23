@@ -21,11 +21,12 @@ class Bag(Generic[T]):
 
     Attributes:
         capacity : Maximum number of items allowed.
-        _items   : Internal list (ordered, indexed) storing items of type T.
+        _items   : Internal (private) list (ordered, indexed) storing items of type T.
     """
 
     def __init__(self, capacity: int) -> None:
-        pass
+        self.capacity: int = capacity
+        self._items: list[T] = []
 
     def add(self, item: T) -> bool:
         """
