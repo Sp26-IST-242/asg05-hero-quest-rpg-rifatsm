@@ -49,7 +49,10 @@ class Bag(Generic[T]):
             True  — item found and removed.
             False — item not present in the bag.
         """
-        pass
+        if item in self._items:
+            self._items.remove(item)
+            return True
+        return False
 
     def all(self) -> list[T]:
         """Return a shallow copy so the internal list stays protected."""
