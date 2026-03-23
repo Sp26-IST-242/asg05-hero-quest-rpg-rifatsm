@@ -56,7 +56,7 @@ class Bag(Generic[T]):
 
     def all(self) -> list[T]:
         """Return a shallow copy so the internal list stays protected."""
-        pass
+        return list(self._items)
 
     def is_full(self) -> bool:
         """Return True when no more items can be added."""
