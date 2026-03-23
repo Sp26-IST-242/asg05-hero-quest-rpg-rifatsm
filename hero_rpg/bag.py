@@ -36,7 +36,10 @@ class Bag(Generic[T]):
             True  — item added successfully.
             False — bag is at capacity; item rejected.
         """
-        pass
+        if len(self._items) >= self.capacity:
+            return False
+        self._items.append(item)
+        return True
 
     def remove(self, item: T) -> bool:
         """
