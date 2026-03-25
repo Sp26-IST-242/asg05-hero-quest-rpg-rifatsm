@@ -54,6 +54,15 @@ class Hero:
     
         self.skills: set[str] = set()
     
+    # ── statistics ────────────────────────────────────────────────────────────────
+        self.stats: dict[str, int] = {
+            "strength": 10,
+            "dexterity": 10,
+            "intelligence": 10,
+            "defense": 5
+        }
+
+
     # ── Health ────────────────────────────────────────────────────────────────
 
     def take_damage(self, amount: int) -> int:
