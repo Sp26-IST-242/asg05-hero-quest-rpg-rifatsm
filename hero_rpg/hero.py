@@ -63,6 +63,9 @@ class Hero:
         }
 
 
+    # ── kill counter ────────────────────────────────────────────────────────────────
+        self.kill_counter: Counter[str] = Counter()
+ 
     # ── Health ────────────────────────────────────────────────────────────────
 
     def take_damage(self, amount: int) -> int:
