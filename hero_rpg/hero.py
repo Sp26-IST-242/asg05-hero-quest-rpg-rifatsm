@@ -30,8 +30,19 @@ class Hero:
     via appropriate Python collection types.
     """
 
-    def __init__(self, name: str, hero_class: str, max_health: int = 100) -> None:
-        pass
+    def __init__(self, 
+                 name: str, 
+                 hero_class: str, 
+                 max_health: int = 100) -> None:
+    
+    # ── identity ────────────────────────────────────────────────────────────────
+        self.name: str = name
+        self.hero_class: str = hero_class
+        self.max_health: int = max_health
+        self.health: int = max_health
+
+
+
 
     # ── Health ────────────────────────────────────────────────────────────────
 

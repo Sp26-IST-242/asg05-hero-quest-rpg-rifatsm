@@ -134,53 +134,53 @@ class TestBag:
         assert sword in bag.all()
 
 
-# # ══════════════════════════════════════════════════════════════════════════════
-# # HERO CONSTRUCTOR TESTS
-# # ══════════════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# HERO CONSTRUCTOR TESTS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# class TestHeroConstructor:
-#     """Verify that the Hero is initialized with the correct defaults."""
+class TestHeroConstructor:
+    """Verify that the Hero is initialized with the correct defaults."""
 
-#     def test_hero_name_and_class(self, hero):
-#         assert hero.name == "Aric"
-#         assert hero.hero_class == "Warrior"
+    def test_hero_name_and_class(self, hero):
+        assert hero.name == "Aric"
+        assert hero.hero_class == "Warrior"
 
-#     def test_health_starts_at_max(self, hero):
-#         """health should equal max_health on creation."""
-#         assert hero.health == hero.max_health == 100
+    def test_health_starts_at_max(self, hero):
+        """health should equal max_health on creation."""
+        assert hero.health == hero.max_health == 100
 
-#     def test_inventory_is_bag_of_item(self, hero):
-#         """inventory should be a Bag with capacity 20 and zero items."""
-#         assert isinstance(hero.inventory, Bag)
-#         assert hero.inventory.capacity == 20
-#         assert len(hero.inventory) == 0
+    def test_inventory_is_bag_of_item(self, hero):
+        """inventory should be a Bag with capacity 20 and zero items."""
+        assert isinstance(hero.inventory, Bag)
+        assert hero.inventory.capacity == 20
+        assert len(hero.inventory) == 0
 
-#     def test_equipped_weapons_is_bag_with_capacity_3(self, hero):
-#         assert isinstance(hero.equipped_weapons, Bag)
-#         assert hero.equipped_weapons.capacity == 3
+    def test_equipped_weapons_is_bag_with_capacity_3(self, hero):
+        assert isinstance(hero.equipped_weapons, Bag)
+        assert hero.equipped_weapons.capacity == 3
 
-#     def test_skills_is_empty_set(self, hero):
-#         """skills must be a set (not list or dict)."""
-#         assert isinstance(hero.skills, set)
-#         assert len(hero.skills) == 0
+    def test_skills_is_empty_set(self, hero):
+        """skills must be a set (not list or dict)."""
+        assert isinstance(hero.skills, set)
+        assert len(hero.skills) == 0
 
-#     def test_stats_has_correct_default_values(self, hero):
-#         """Default stats should match the spec exactly."""
-#         assert hero.stats["strength"]     == 10
-#         assert hero.stats["dexterity"]    == 10
-#         assert hero.stats["intelligence"] == 10
-#         assert hero.stats["defense"]      == 5
+    def test_stats_has_correct_default_values(self, hero):
+        """Default stats should match the spec exactly."""
+        assert hero.stats["strength"]     == 10
+        assert hero.stats["dexterity"]    == 10
+        assert hero.stats["intelligence"] == 10
+        assert hero.stats["defense"]      == 5
 
-#     def test_kill_counter_is_counter(self, hero):
-#         assert isinstance(hero.kill_counter, Counter)
+    def test_kill_counter_is_counter(self, hero):
+        assert isinstance(hero.kill_counter, Counter)
 
-#     def test_item_registry_is_defaultdict(self, hero):
-#         assert isinstance(hero._item_registry, defaultdict)
+    def test_item_registry_is_defaultdict(self, hero):
+        assert isinstance(hero._item_registry, defaultdict)
 
-#     def test_combat_log_is_deque_with_maxlen_10(self, hero):
-#         """combat_log must be a deque with maxlen=10."""
-#         assert isinstance(hero.combat_log, deque)
-#         assert hero.combat_log.maxlen == 10
+    def test_combat_log_is_deque_with_maxlen_10(self, hero):
+        """combat_log must be a deque with maxlen=10."""
+        assert isinstance(hero.combat_log, deque)
+        assert hero.combat_log.maxlen == 10
 
 
 # # ══════════════════════════════════════════════════════════════════════════════
