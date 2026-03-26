@@ -70,6 +70,9 @@ class Hero:
     
         self._item_registry: defaultdict[str, list[Item]] = defaultdict(list)
     
+    # ── combat log ────────────────────────────────────────────────────────────────
+        self.combat_log: deque[str] = deque(maxlen=10)
+
     # ── Health ────────────────────────────────────────────────────────────────
 
     def take_damage(self, amount: int) -> int:
