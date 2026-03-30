@@ -163,7 +163,11 @@ class Hero:
 
     def total_damage_potential(self) -> int:
         """Sum damage of all currently equipped weapons."""
-        pass
+        # damage: int = 0
+        # for w in self.equipped_weapons.all():
+        #     damage += w.damage
+        # return damage 
+        return sum(w.damage for w in self.equipped_weapons.all()) # functional approach of Python
 
     def top_kills(self, n: int = 3) -> list[tuple[str, int]]:
         """
