@@ -140,7 +140,10 @@ class Hero:
         Returns:
             True if new skill; False if already known.
         """
-        pass
+        if skill in self.skills:
+            return False
+        self.skills.add(skill)
+        return True
 
     # ── Inventory ─────────────────────────────────────────────────────────────
 

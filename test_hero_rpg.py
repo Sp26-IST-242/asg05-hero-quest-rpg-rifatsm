@@ -283,41 +283,41 @@ class TestWeapons:
         assert any("Iron Sword" in entry for entry in hero.combat_log)
 
 
-# # ══════════════════════════════════════════════════════════════════════════════
-# # SKILL TESTS
-# # ══════════════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# SKILL TESTS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# class TestSkills:
-#     """Tests verifying set behavior for skill learning."""
+class TestSkills:
+    """Tests verifying set behavior for skill learning."""
 
-#     def test_learn_new_skill_returns_true(self, hero):
-#         assert hero.learn_skill("Shield Bash") is True
+    def test_learn_new_skill_returns_true(self, hero):
+        assert hero.learn_skill("Shield Bash") is True
 
-#     def test_learn_duplicate_skill_returns_false(self, hero):
-#         hero.learn_skill("Shield Bash")
-#         result = hero.learn_skill("Shield Bash")   # duplicate
-#         assert result is False
+    def test_learn_duplicate_skill_returns_false(self, hero):
+        hero.learn_skill("Shield Bash")
+        result = hero.learn_skill("Shield Bash")   # duplicate
+        assert result is False
 
-#     def test_skills_set_contains_no_duplicates(self, hero):
-#         hero.learn_skill("Fireball")
-#         hero.learn_skill("Fireball")
-#         hero.learn_skill("Fireball")
-#         assert len(hero.skills) == 1   # set: no duplicates
+    def test_skills_set_contains_no_duplicates(self, hero):
+        hero.learn_skill("Fireball")
+        hero.learn_skill("Fireball")
+        hero.learn_skill("Fireball")
+        assert len(hero.skills) == 1   # set: no duplicates
 
-#     def test_skills_is_unordered_set(self, hero):
-#         hero.learn_skill("A")
-#         hero.learn_skill("B")
-#         hero.learn_skill("C")
-#         # The collection is a set, not a list
-#         assert isinstance(hero.skills, set)
+    def test_skills_is_unordered_set(self, hero):
+        hero.learn_skill("A")
+        hero.learn_skill("B")
+        hero.learn_skill("C")
+        # The collection is a set, not a list
+        assert isinstance(hero.skills, set)
 
-#     def test_multiple_different_skills(self, hero):
-#         hero.learn_skill("Dodge")
-#         hero.learn_skill("Counter Strike")
-#         hero.learn_skill("War Cry")
-#         assert "Dodge" in hero.skills
-#         assert "War Cry" in hero.skills
-#         assert len(hero.skills) == 3
+    def test_multiple_different_skills(self, hero):
+        hero.learn_skill("Dodge")
+        hero.learn_skill("Counter Strike")
+        hero.learn_skill("War Cry")
+        assert "Dodge" in hero.skills
+        assert "War Cry" in hero.skills
+        assert len(hero.skills) == 3
 
 
 # # ══════════════════════════════════════════════════════════════════════════════
