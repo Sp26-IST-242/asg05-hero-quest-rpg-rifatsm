@@ -183,69 +183,69 @@ class TestHeroConstructor:
         assert hero.combat_log.maxlen == 10
 
 
-# # ══════════════════════════════════════════════════════════════════════════════
-# # COMBAT TESTS
-# # ══════════════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# COMBAT TESTS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# class TestCombat:
-#     """Tests for take_damage, heal, and is_alive."""
+class TestCombat:
+    """Tests for take_damage, heal, and is_alive."""
 
-#     def test_take_damage_reduces_health(self, hero):
-#         hero.take_damage(30)
-#         assert hero.health == 70
+    def test_take_damage_reduces_health(self, hero):
+        hero.take_damage(30)
+        assert hero.health == 70
 
-#     def test_take_damage_returns_actual_damage(self, hero):
-#         returned = hero.take_damage(30)
-#         assert returned == 30
+    def test_take_damage_returns_actual_damage(self, hero):
+        returned = hero.take_damage(30)
+        assert returned == 30
 
-#     def test_take_damage_capped_at_current_health(self, hero):
-#         """Overkill damage should clamp to current HP, not go negative."""
-#         returned = hero.take_damage(200)   # hero only has 100 HP
-#         assert returned == 100             # actual damage = full HP
-#         assert hero.health == 0
+    def test_take_damage_capped_at_current_health(self, hero):
+        """Overkill damage should clamp to current HP, not go negative."""
+        returned = hero.take_damage(200)   # hero only has 100 HP
+        assert returned == 100             # actual damage = full HP
+        assert hero.health == 0
 
-#     def test_health_never_goes_below_zero(self, hero):
-#         hero.take_damage(9999)
-#         assert hero.health == 0
+    def test_health_never_goes_below_zero(self, hero):
+        hero.take_damage(9999)
+        assert hero.health == 0
 
-#     def test_is_alive_true_with_health(self, hero):
-#         assert hero.is_alive() is True
+    def test_is_alive_true_with_health(self, hero):
+        assert hero.is_alive() is True
 
-#     def test_is_alive_false_when_health_zero(self, hero):
-#         hero.take_damage(100)
-#         assert hero.is_alive() is False
+    def test_is_alive_false_when_health_zero(self, hero):
+        hero.take_damage(100)
+        assert hero.is_alive() is False
 
-#     def test_heal_increases_health(self, hero):
-#         hero.take_damage(40)
-#         hero.heal(20)
-#         assert hero.health == 80
+    def test_heal_increases_health(self, hero):
+        hero.take_damage(40)
+        hero.heal(20)
+        assert hero.health == 80
 
-#     def test_heal_returns_actual_hp_restored(self, hero):
-#         hero.take_damage(40)
-#         restored = hero.heal(20)
-#         assert restored == 20
+    def test_heal_returns_actual_hp_restored(self, hero):
+        hero.take_damage(40)
+        restored = hero.heal(20)
+        assert restored == 20
 
-#     def test_heal_capped_at_max_health(self, hero):
-#         """Healing beyond max_health should clamp to max_health."""
-#         hero.take_damage(10)
-#         restored = hero.heal(9999)
-#         assert restored == 10            # only 10 HP was missing
-#         assert hero.health == hero.max_health
+    def test_heal_capped_at_max_health(self, hero):
+        """Healing beyond max_health should clamp to max_health."""
+        hero.take_damage(10)
+        restored = hero.heal(9999)
+        assert restored == 10            # only 10 HP was missing
+        assert hero.health == hero.max_health
 
-#     def test_take_damage_adds_to_combat_log(self, hero):
-#         hero.take_damage(25)
-#         assert any("took 25 damage" in entry for entry in hero.combat_log)
+    def test_take_damage_adds_to_combat_log(self, hero):
+        hero.take_damage(25)
+        assert any("took 25 damage" in entry for entry in hero.combat_log)
 
-#     def test_heal_adds_to_combat_log(self, hero):
-#         hero.take_damage(50)
-#         hero.heal(20)
-#         assert any("healed 20 HP" in entry for entry in hero.combat_log)
+    def test_heal_adds_to_combat_log(self, hero):
+        hero.take_damage(50)
+        hero.heal(20)
+        assert any("healed 20 HP" in entry for entry in hero.combat_log)
 
-#     def test_combat_log_rolls_over_at_10_entries(self, hero):
-#         """deque(maxlen=10) must drop the oldest entry at the 11th event."""
-#         for i in range(11):
-#             hero.take_damage(1)
-#         assert len(hero.combat_log) == 10
+    def test_combat_log_rolls_over_at_10_entries(self, hero):
+        """deque(maxlen=10) must drop the oldest entry at the 11th event."""
+        for i in range(11):
+            hero.take_damage(1)
+        assert len(hero.combat_log) == 10
 
 
 # # ══════════════════════════════════════════════════════════════════════════════
