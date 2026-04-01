@@ -367,44 +367,44 @@ class TestInventory:
         assert hero.pick_up_item(extra) is False
 
 
-# # ══════════════════════════════════════════════════════════════════════════════
-# # KILL COUNTER TESTS
-# # ══════════════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# KILL COUNTER TESTS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# class TestKillCounter:
-#     """Tests for Counter-based kill tracking."""
+class TestKillCounter:
+    """Tests for Counter-based kill tracking."""
 
-#     def test_record_kill_increments_counter(self, hero):
-#         hero.record_kill("Goblin")
-#         assert hero.kill_counter["Goblin"] == 1
+    def test_record_kill_increments_counter(self, hero):
+        hero.record_kill("Goblin")
+        assert hero.kill_counter["Goblin"] == 1
 
-#     def test_record_kill_accumulates(self, hero):
-#         for _ in range(5):
-#             hero.record_kill("Goblin")
-#         assert hero.kill_counter["Goblin"] == 5
+    def test_record_kill_accumulates(self, hero):
+        for _ in range(5):
+            hero.record_kill("Goblin")
+        assert hero.kill_counter["Goblin"] == 5
 
-#     def test_top_kills_returns_most_common(self, hero):
-#         for _ in range(5): hero.record_kill("Goblin")
-#         for _ in range(3): hero.record_kill("Orc")
-#         hero.record_kill("Dragon")
-#         top = hero.top_kills(2)
-#         assert top[0] == ("Goblin", 5)
-#         assert top[1] == ("Orc", 3)
+    def test_top_kills_returns_most_common(self, hero):
+        for _ in range(5): hero.record_kill("Goblin")
+        for _ in range(3): hero.record_kill("Orc")
+        hero.record_kill("Dragon")
+        top = hero.top_kills(2)
+        assert top[0] == ("Goblin", 5)
+        assert top[1] == ("Orc", 3)
 
-#     def test_top_kills_default_n_is_3(self, hero):
-#         hero.record_kill("A")
-#         hero.record_kill("B")
-#         hero.record_kill("C")
-#         hero.record_kill("D")
-#         assert len(hero.top_kills()) == 3
+    def test_top_kills_default_n_is_3(self, hero):
+        hero.record_kill("A")
+        hero.record_kill("B")
+        hero.record_kill("C")
+        hero.record_kill("D")
+        assert len(hero.top_kills()) == 3
 
-#     def test_record_kill_adds_to_combat_log(self, hero):
-#         hero.record_kill("Troll")
-#         assert any("Troll" in entry for entry in hero.combat_log)
+    def test_record_kill_adds_to_combat_log(self, hero):
+        hero.record_kill("Troll")
+        assert any("Troll" in entry for entry in hero.combat_log)
 
-#     def test_kill_counter_unknown_enemy_returns_zero(self, hero):
-#         """Counter defaults missing keys to 0 — no KeyError."""
-#         assert hero.kill_counter["Unknown"] == 0
+    def test_kill_counter_unknown_enemy_returns_zero(self, hero):
+        """Counter defaults missing keys to 0 — no KeyError."""
+        assert hero.kill_counter["Unknown"] == 0
 
 
 # # ══════════════════════════════════════════════════════════════════════════════
