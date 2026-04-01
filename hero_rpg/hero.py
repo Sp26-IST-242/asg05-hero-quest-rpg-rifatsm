@@ -187,6 +187,7 @@ class Hero:
         Return the top N most-killed enemy types.
         Counter.most_common() returns them in descending order of count.
         """
+        return self.kill_counter.most_common(n)
         
 
     # ── Stats ─────────────────────────────────────────────────────────────────
