@@ -21,7 +21,7 @@ from hero_rpg import Hero, Weapon, Item, WeaponType, ItemType
 def main() -> None:
     # ── Create hero ───────────────────────────────────────────────────────────
     hero = Hero("Aric", "Warrior", max_health=120)
-    print(hero)
+    # print(hero)
 
     # ── Equip weapons (Bag[Weapon], capacity 3) ───────────────────────────────
     sword  = Weapon("Iron Sword",    WeaponType.SWORD,  damage=30)
@@ -48,8 +48,11 @@ def main() -> None:
 
     # ── Combat simulation ─────────────────────────────────────────────────────
     hero.take_damage(35)
+    # print(hero)
     hero.take_damage(20)
+    # print(hero)
     hero.heal(25)
+    # print(hero)
 
     # ── Record kills (Counter) ────────────────────────────────────────────────
     for _ in range(5): hero.record_kill("Goblin")
