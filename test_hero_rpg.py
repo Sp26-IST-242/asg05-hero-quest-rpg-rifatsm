@@ -320,51 +320,51 @@ class TestSkills:
         assert len(hero.skills) == 3
 
 
-# # ══════════════════════════════════════════════════════════════════════════════
-# # INVENTORY TESTS
-# # ══════════════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# INVENTORY TESTS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# class TestInventory:
-#     """Tests for item pick-up and defaultdict grouping."""
+class TestInventory:
+    """Tests for item pick-up and defaultdict grouping."""
 
-#     def test_pick_up_item_returns_true(self, hero, potion):
-#         assert hero.pick_up_item(potion) is True
+    def test_pick_up_item_returns_true(self, hero, potion):
+        assert hero.pick_up_item(potion) is True
 
-#     def test_pick_up_item_adds_to_inventory(self, hero, potion):
-#         hero.pick_up_item(potion)
-#         assert potion in hero.inventory.all()
+    def test_pick_up_item_adds_to_inventory(self, hero, potion):
+        hero.pick_up_item(potion)
+        assert potion in hero.inventory.all()
 
-#     def test_pick_up_item_registers_by_type(self, hero, potion, armor):
-#         hero.pick_up_item(potion)
-#         hero.pick_up_item(armor)
-#         grouped = hero.items_by_type()
-#         # potion should be under "Potion" key
-#         assert "Potion" in grouped
-#         assert potion in grouped["Potion"]
-#         # armor should be under "Armor" key
-#         assert "Armor" in grouped
-#         assert armor in grouped["Armor"]
+    def test_pick_up_item_registers_by_type(self, hero, potion, armor):
+        hero.pick_up_item(potion)
+        hero.pick_up_item(armor)
+        grouped = hero.items_by_type()
+        # potion should be under "Potion" key
+        assert "Potion" in grouped
+        assert potion in grouped["Potion"]
+        # armor should be under "Armor" key
+        assert "Armor" in grouped
+        assert armor in grouped["Armor"]
 
-#     def test_multiple_potions_grouped_together(self, hero):
-#         p1 = Item("Health Potion", ItemType.POTION, value=50)
-#         p2 = Item("Mana Potion",   ItemType.POTION, value=40)
-#         hero.pick_up_item(p1)
-#         hero.pick_up_item(p2)
-#         grouped = hero.items_by_type()
-#         assert len(grouped["Potion"]) == 2
+    def test_multiple_potions_grouped_together(self, hero):
+        p1 = Item("Health Potion", ItemType.POTION, value=50)
+        p2 = Item("Mana Potion",   ItemType.POTION, value=40)
+        hero.pick_up_item(p1)
+        hero.pick_up_item(p2)
+        grouped = hero.items_by_type()
+        assert len(grouped["Potion"]) == 2
 
-#     def test_items_by_type_returns_plain_dict(self, hero, potion):
-#         hero.pick_up_item(potion)
-#         result = hero.items_by_type()
-#         # Should be a regular dict, not a defaultdict
-#         assert type(result) is dict
+    def test_items_by_type_returns_plain_dict(self, hero, potion):
+        hero.pick_up_item(potion)
+        result = hero.items_by_type()
+        # Should be a regular dict, not a defaultdict
+        assert type(result) is dict
 
-#     def test_pick_up_returns_false_when_full(self, hero):
-#         """inventory capacity is 20; adding a 21st item should fail."""
-#         for i in range(20):
-#             hero.pick_up_item(Item(f"Item_{i}", ItemType.MISC, value=1))
-#         extra = Item("One Too Many", ItemType.MISC, value=1)
-#         assert hero.pick_up_item(extra) is False
+    def test_pick_up_returns_false_when_full(self, hero):
+        """inventory capacity is 20; adding a 21st item should fail."""
+        for i in range(20):
+            hero.pick_up_item(Item(f"Item_{i}", ItemType.MISC, value=1))
+        extra = Item("One Too Many", ItemType.MISC, value=1)
+        assert hero.pick_up_item(extra) is False
 
 
 # # ══════════════════════════════════════════════════════════════════════════════
