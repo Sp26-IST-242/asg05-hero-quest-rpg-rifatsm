@@ -407,28 +407,28 @@ class TestKillCounter:
         assert hero.kill_counter["Unknown"] == 0
 
 
-# # ══════════════════════════════════════════════════════════════════════════════
-# # STAT UPGRADE TESTS
-# # ══════════════════════════════════════════════════════════════════════════════
+# ══════════════════════════════════════════════════════════════════════════════
+# STAT UPGRADE TESTS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# class TestStats:
-#     """Tests for upgrading hero stats."""
+class TestStats:
+    """Tests for upgrading hero stats."""
 
-#     def test_upgrade_existing_stat(self, hero):
-#         result = hero.upgrade_stat("strength", 5)
-#         assert result is True
-#         assert hero.stats["strength"] == 15
+    def test_upgrade_existing_stat(self, hero):
+        result = hero.upgrade_stat("strength", 5)
+        assert result is True
+        assert hero.stats["strength"] == 15
 
-#     def test_upgrade_nonexistent_stat_returns_false(self, hero):
-#         result = hero.upgrade_stat("luck", 10)
-#         assert result is False
+    def test_upgrade_nonexistent_stat_returns_false(self, hero):
+        result = hero.upgrade_stat("luck", 10)
+        assert result is False
 
-#     def test_upgrade_does_not_affect_other_stats(self, hero):
-#         hero.upgrade_stat("strength", 10)
-#         assert hero.stats["dexterity"] == 10    # unchanged
-#         assert hero.stats["defense"]   == 5     # unchanged
+    def test_upgrade_does_not_affect_other_stats(self, hero):
+        hero.upgrade_stat("strength", 10)
+        assert hero.stats["dexterity"] == 10    # unchanged
+        assert hero.stats["defense"]   == 5     # unchanged
 
-#     def test_multiple_upgrades_accumulate(self, hero):
-#         hero.upgrade_stat("intelligence", 5)
-#         hero.upgrade_stat("intelligence", 5)
-#         assert hero.stats["intelligence"] == 20
+    def test_multiple_upgrades_accumulate(self, hero):
+        hero.upgrade_stat("intelligence", 5)
+        hero.upgrade_stat("intelligence", 5)
+        assert hero.stats["intelligence"] == 20
